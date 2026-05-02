@@ -1,0 +1,23 @@
+#!/bin/sh
+set -e
+
+repo_root="$(git rev-parse --show-toplevel)"
+sync_script="$repo_root/docs/update-script-registry.ps1"
+
+if [ ! -f "$sync_script" ]; then
+  echo "Missing docs/update-script-registry.ps1; cannot enforce VIDAL independence rule." >&2
+  exit 1
+fi
+
+if command -v pwsh >/dev/null 2>&1; then
+  pwsh -NoProfile -ExecutionPolicy Bypass -File "$sync_script" -RepositoryRoot "$repo_root"
+elif command -v powershell.exe >/dev/null 2>&1; then
+  powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$sync_script" -RepositoryRoot "$repo_root"
+elif command -v powershell >/dev/null 2>&1; then
+  powershell -NoProfile -ExecutionPolicy Bypass -File "$sync_script" -RepositoryRoot "$repo_root"
+else
+  echo "PowerShell was not found; cannot update docs/SCRIPT_REGISTRY.md." >&2
+  exit 1
+fi
+
+git add docs/SCRIPT_REGISTRY.md

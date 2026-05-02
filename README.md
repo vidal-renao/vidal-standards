@@ -1,121 +1,123 @@
 # vidal-standards
 
-![Standard](https://img.shields.io/badge/standard-CLAUDE.md-0052CC?style=flat-square&logo=anthropic)
-![Stack](https://img.shields.io/badge/stack-Next.js%20%7C%20TS%20%7C%20Supabase%20%7C%20Vercel-black?style=flat-square)
-![Compliance](https://img.shields.io/badge/compliance-Swiss%20DSG%2FnDSG-red?style=flat-square)
-![Architecture](https://img.shields.io/badge/architecture-Clean%20%7C%20SOLID%20%7C%20DDD-blue?style=flat-square)
-![Maintained](https://img.shields.io/badge/maintained-yes-brightgreen?style=flat-square)
+![Next.js](https://img.shields.io/badge/Next.js-15%2B-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-Strict-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL_%2B_RLS-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-Edge_Deployment-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Swiss DSG](https://img.shields.io/badge/Swiss_DSG-nDSG_Compliant-E30613?style=for-the-badge)
 
-> Global engineering standards for the **Vidal Ecosystem** — AI-Powered SaaS Infrastructure targeting Swiss SMEs.
+**vidal-standards** is the operating standard for the VIDAL ECOSYSTEM: a Swiss SME-ready blueprint for AI-powered SaaS infrastructure, documentation automation, delivery discipline, and compliance-first engineering.
 
----
+## Business Context
 
-## Overview
+Swiss SMEs need software that is fast to ship, easy to audit, and sober about data protection. This repository defines the minimum technical bar for building **AI-Powered SaaS Infrastructure** in the Swiss market: multilingual UX, strict TypeScript, Supabase RLS, automated documentation, measurable performance, and privacy-by-design workflows aligned with the Swiss DSG/nDSG.
 
-Este repositorio contiene el estándar maestro que rige todos los proyectos del ecosistema Vidal.  
-Cualquier subproyecto nuevo debe adoptar `CLAUDE.md` como contrato de comportamiento con el AI Engineer.
+The target outcome is not only code reuse. It is operational trust: every product in the ecosystem should make it clear where personal data lives, which agent or automation touched the system, how deployment is controlled, and how technical decisions can be reviewed by a client, auditor, or engineering partner.
 
----
+## Architecture Table
 
-## Ecosistema de Proyectos
-
-```mermaid
-graph TD
-    STD["vidal-standards (este repo)"]
-
-    STD --> A["limpiezas-najip-maritza\n(dnamar.ch — Producción)"]
-    STD --> B["invoice-auto\n(SaaS Facturas — Avanzado)"]
-    STD --> C["cv-platform\n(SaaS Paquetería — Production-ready)"]
-    STD --> D["matchpoint-ai\n(AI Job Matching — Fase 3)"]
-    STD --> E["vidal-pro-portfolio\n(Portfolio — WIP)"]
-    STD --> F["Ticket System\n(AI Helpdesk — En diseño)"]
-    STD --> G["m365-labs / graph-*\n(Microsoft 365 Labs)"]
-```
-
----
-
-## Stack Global
-
-| Layer | Technology |
-|---|---|
-| Framework | Next.js 15+ (App Router) |
-| Language | TypeScript (strict mode) |
-| Database | Supabase (PostgreSQL + RLS) |
-| Deployment | Vercel |
-| AI | Claude Sonnet 4.6 (Anthropic) |
-| Compliance | Swiss DSG / nDSG |
-
----
-
-## CLAUDE.md — Contrato AI Engineer
-
-El archivo [`CLAUDE.md`](./CLAUDE.md) define el modo operativo del AI Engineer en cada proyecto.
-
-### Comandos activos
-
-| Trigger | Acción |
-|---|---|
-| `/ghost` | Tono ejecutivo / humano |
-| `/uda` | Análisis raíz + arquitectura |
-| `/ooda` | Guía técnica paso a paso |
-| `L99` | Nivel senior, sin simplificaciones |
-| `/godmode` | Profundidad máxima + edge-cases |
-| `/audit` | Auditoría de seguridad + vulnerabilidades |
-
-### Reglas de ejecución
-
-1. **Sin relleno** — directo a la solución
-2. **Código**: Clean Architecture · Tipado estricto · SOLID
-3. **Docs**: Mermaid · Shields.io · ADRs · SEO
-4. **Autonomía**: README se actualiza al detectar cambios en APIs o Schema
-
----
-
-## Compliance Swiss DSG / nDSG
+| Path | Layer | Purpose | SME Swiss Standard |
+|---|---|---|---|
+| `/README.md` | Executive landing | Public technical overview, stack badges, architecture, performance, compliance posture | First artifact for client trust and due diligence |
+| `/CLAUDE.md` | AI engineering contract | Operating rules, stack defaults, architectural triggers, compliance boundaries | Keeps AI-assisted delivery consistent across projects |
+| `/docs` | Automation and governance | PowerShell scripts, agent ecosystem docs, generated script registry | Documentation changes track operational changes automatically |
+| `/docs/setup-dev-path.ps1` | Workstation setup | Validates and configures PATH entries for VS Code CLI and GitHub CLI | Reduces onboarding drift on Windows environments |
+| `/docs/update-script-registry.ps1` | Documentation automation | Scans repository scripts and regenerates `/docs/SCRIPT_REGISTRY.md` | Enforces the independence rule for script documentation |
+| `/docs/agent-ecosystem.md` | AI operating model | Defines Claude Code, GitHub Copilot, Gemini, and Codex responsibilities | Cost-aware multi-agent delivery model capped at USD 40/month |
+| `/docs/SCRIPT_REGISTRY.md` | Generated reference | Hashes, size, purpose, and update time for automation scripts | Audit-friendly traceability for script modifications |
+| `/assets` | Visual resources | Logos, diagrams, screenshots, and brand assets | Keeps client-facing media separate from code and governance docs |
+| `/.githooks/pre-commit` | Git automation | Runs documentation sync before commits | Prevents stale script docs from entering repository history |
 
 ```mermaid
-flowchart LR
-    DATA["User Data"] --> RLS["Supabase RLS"]
-    RLS --> AUDIT["Audit Logs\n(inmutables)"]
-    AUDIT --> RETAIN["Retención\nDefinida"]
-    DATA --> PII["PII Detection\n(Claude API)"]
-    PII --> MASK["Masking /\nAnonymization"]
+flowchart TD
+    README["README.md\nSwiss SME landing"]
+    DOCS["docs/\nAutomation + governance"]
+    ASSETS["assets/\nVisual resources"]
+    HOOK[".githooks/pre-commit\nIndependence rule"]
+    SCRIPTS["*.ps1 scripts"]
+    REGISTRY["docs/SCRIPT_REGISTRY.md\nGenerated"]
+
+    README --> DOCS
+    README --> ASSETS
+    HOOK --> SCRIPTS
+    SCRIPTS --> REGISTRY
+    REGISTRY --> DOCS
 ```
 
-- Logs de auditoría inmutables en todas las operaciones críticas
-- Detección de PII antes de persistir datos
-- Retención de datos configurada por proyecto
-- Sin transferencia de datos fuera de jurisdicción suiza sin consentimiento explícito
+## Performance And SEO
 
----
+Target Lighthouse gates for production-grade VIDAL projects:
 
-## Architecture Decision Records (ADRs)
+| Metric | Target | Notes |
+|---|---:|---|
+| Performance | 95+ | Server Components, image optimization, route-level code splitting |
+| Accessibility | 95+ | Semantic landmarks, keyboard paths, visible focus states |
+| Best Practices | 95+ | Security headers, HTTPS-only deployment, dependency hygiene |
+| SEO | 95+ | Metadata API, canonical URLs, localized sitemap, structured data |
+| First Contentful Paint | < 1.8s | Edge caching and critical CSS discipline |
+| Largest Contentful Paint | < 2.5s | Optimized hero media and predictable layout dimensions |
+| Cumulative Layout Shift | < 0.05 | Stable dimensions for media, navigation, cards, and dashboards |
 
-| ADR | Decisión |
+Structured data baseline:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "VIDAL AI-Powered SaaS Infrastructure",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "areaServed": ["CH", "DE", "AT"],
+  "inLanguage": ["en", "de", "es"],
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "CHF"
+  }
+}
+```
+
+## Swiss DSG Controls
+
+| Control | Standard |
 |---|---|
-| ADR-001 | Next.js App Router como estándar (no Pages Router) |
-| ADR-002 | Supabase RLS como capa de autorización primaria |
-| ADR-003 | Claude Sonnet 4.6 para features AI en producción |
-| ADR-004 | Vercel como plataforma de deployment único |
-| ADR-005 | i18n obligatorio (ES/DE/EN) para mercado suizo |
+| Data minimization | Collect only fields required for the business workflow |
+| Consent | Document explicit consent for external AI processing or cross-border transfer |
+| Access control | Supabase RLS is mandatory for user-owned or tenant-owned data |
+| Auditability | Critical operations require immutable logs with actor, timestamp, and purpose |
+| Retention | Each project documents retention rules in its ADRs or data policy |
+| Incident readiness | Secrets, tokens, and webhook payloads must be scoped, rotated, and reviewable |
 
----
+## Independence Rule
 
-## Propagación del Estándar
+Any modification to script code must update the associated technical documentation without manual intervention. This repository enforces that rule through:
 
-Al actualizar `CLAUDE.md` en este repo, propagar a todos los subproyectos:
+1. `docs/update-script-registry.ps1`, which scans scripts and regenerates `docs/SCRIPT_REGISTRY.md`.
+2. `.githooks/pre-commit`, which runs the registry update before Git creates a commit.
+3. `git config core.hooksPath .githooks`, which binds the automation to this repository.
 
-```bash
-# Desde la raíz del ecosistema
-for dir in cv-platform invoice-auto matchpoint-ai limpiezas-najip-maritza \
-           "Ticket System" vidal-pro-portfolio lingualab \
-           graph-employee-onboarding hybrid-identity-ticket-automation \
-           intune-autopilot-lab m365-enterprise-lab m365-graph-dashboard \
-           m365-intune-lab m365-lab profile vidal-renao web-demos website-demos docs; do
-  cp vidal-standards/CLAUDE.md "$dir/CLAUDE.md"
-done
+Run manually when needed:
+
+```powershell
+pwsh -NoProfile -ExecutionPolicy Bypass -File .\docs\update-script-registry.ps1
 ```
 
----
+## Agent Operating Model
 
-*Mantenido por [Vidal Renao](https://github.com/vidalrenao) — Swiss SaaS Engineering*
+The full model lives in [`docs/agent-ecosystem.md`](./docs/agent-ecosystem.md). The standard role split is:
+
+| Agent | Role |
+|---|---|
+| Claude Code | Autonomous implementation and repository navigation |
+| GitHub Copilot | Inline suggestion and developer flow acceleration |
+| Gemini | Performance, Lighthouse, SEO, and broad comparative analysis |
+| Codex | Logic, refactoring, tests, and architectural consistency |
+
+## Local Setup
+
+```powershell
+.\docs\setup-dev-path.ps1
+git config core.hooksPath .githooks
+```
+
+Maintained for VIDAL ECOSYSTEM, Basel, Switzerland.
