@@ -5,9 +5,10 @@
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL_%2B_RLS-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-Edge_Deployment-000000?style=for-the-badge&logo=vercel&logoColor=white)
-![Swiss DSG](https://img.shields.io/badge/Swiss_DSG-nDSG_Compliant-E30613?style=for-the-badge)
 
 **vidal-standards** is the operating standard for the VIDAL ECOSYSTEM: a Swiss SME-ready blueprint for AI-powered SaaS infrastructure, documentation automation, delivery discipline, and compliance-first engineering.
+
+These are engineering targets and working guidelines, not a compliance certification or proof that every project implements every control.
 
 ## Business Context
 
@@ -77,7 +78,7 @@ Structured data baseline:
 }
 ```
 
-## Swiss DSG Controls
+## Privacy & Data Protection Engineering Targets
 
 | Control | Standard |
 |---|---|
